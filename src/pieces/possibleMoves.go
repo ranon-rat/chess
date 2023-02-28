@@ -7,24 +7,43 @@ import (
 // y,x
 var (
 	// this can move if a there is no piece
-	BishopMoves = [][2]int{{1, 1}, {1, -1}, {-1, -1}, {-1, 1}}
+	BishopMoves = [][2]int{
+		// up
+		{1, 1}, {1, -1},
+		//down
+		{-1, -1}, {-1, 1}}
 	// for now it will stay like this
 
 	QueenMoves = [][2]int{
-		{1, 1}, {1, -1}, {-1, -1}, {-1, 1},
-		{1, 0}, {0, -1}, {-1, 0}, {0, 1}}
+		// up
+		{1, 1}, {1, -1}, {1, 0},
+		//down
+		{-1, -1}, {-1, 1}, {-1, 0},
+		//left and right
+		{0, -1}, {0, 1}}
 
-	RookMoves = [][2]int{{0, 1}, {0, -1}, {-1, 0}, {1, 0}}
+	RookMoves = [][2]int{
+		//right and left
+		{0, 1}, {0, -1},
+		//right and elft
+		{-1, 0}, {1, 0}}
 
 	KnightMoves = [][2]int{
+		// weird L shapes
 		{2, 1}, {-2, 1},
 		{2, -1}, {-2, -1},
 		{1, 2}, {-1, 2},
-		{1, -2}, {-1, -2}}
+		{1, -2}, {-1, -2},
+	}
 
 	KingMoves = [][2]int{
-		{1, 1}, {1, -1}, {-1, -1}, {-1, 1},
-		{1, 0}, {0, -1}, {-1, 0}, {0, 1}}
+		// up
+		{1, 1}, {1, -1}, {1, 0},
+		//down
+		{-1, -1}, {-1, 1}, {-1, 0},
+		//left and right
+		{0, -1}, {0, 1},
+	}
 
 	Moves = map[int][][2]int{
 		QUEEN:  QueenMoves,
