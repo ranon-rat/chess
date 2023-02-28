@@ -5,16 +5,14 @@ import (
 )
 
 var pieces = map[rune]*Piece{
-	'P': {Kind: PAWN, Black: false},
-	'N': {Kind: KNIGHT, Black: false},
-	'B': {Kind: BISHOP, Black: false},
-	'R': {Kind: ROOK, Black: false},
-	'Q': {Kind: QUEEN, Black: false},
-	'S': {Kind: PAWN, Passant: true},
-	'K': {Kind: KING, Black: false},
+	'P': {Kind: PAWN},
+	'N': {Kind: KNIGHT},
+	'B': {Kind: BISHOP},
+	'R': {Kind: ROOK},
+	'Q': {Kind: QUEEN},
+	'K': {Kind: KING},
 	'p': {Kind: PAWN, Black: true},
 	'n': {Kind: KNIGHT, Black: true},
-	's': {Kind: PAWN, Passant: true, Black: true},
 	'b': {Kind: BISHOP, Black: true},
 	'q': {Kind: QUEEN, Black: true},
 	'r': {Kind: ROOK, Black: true},
