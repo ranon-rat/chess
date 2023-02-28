@@ -5,22 +5,25 @@ import (
 )
 
 var pieces = map[rune]*Piece{
-	'P': {Kind: PAWN, Passant: false, Moved: false, Black: false},
-	'N': {Kind: KNIGHT, Passant: false, Moved: false, Black: false},
-	'B': {Kind: BISHOP, Passant: false, Moved: false, Black: false},
-	'R': {Kind: ROOK, Passant: false, Moved: false, Black: false},
-	'Q': {Kind: QUEEN, Passant: false, Moved: false, Black: false},
-	'K': {Kind: KING, Passant: false, Moved: false, Black: false},
-	'p': {Kind: PAWN, Passant: false, Moved: false, Black: true},
-	'n': {Kind: KNIGHT, Passant: false, Moved: false, Black: true},
-
-	'b': {Kind: BISHOP, Passant: false, Moved: false, Black: true},
-	'q': {Kind: QUEEN, Passant: false, Moved: false, Black: true},
-	'r': {Kind: ROOK, Passant: false, Moved: false, Black: true},
-
-	'k': {Kind: KING, Passant: false, Moved: false, Black: true},
+	'P': {Kind: PAWN, Black: false},
+	'N': {Kind: KNIGHT, Black: false},
+	'B': {Kind: BISHOP, Black: false},
+	'R': {Kind: ROOK, Black: false},
+	'Q': {Kind: QUEEN, Black: false},
+	'S': {Kind: PAWN, Passant: true},
+	'K': {Kind: KING, Black: false},
+	'p': {Kind: PAWN, Black: true},
+	'n': {Kind: KNIGHT, Black: true},
+	's': {Kind: PAWN, Passant: true, Black: true},
+	'b': {Kind: BISHOP, Black: true},
+	'q': {Kind: QUEEN, Black: true},
+	'r': {Kind: ROOK, Black: true},
+	'k': {Kind: KING, Black: true},
 }
 
+func BoardToFen([][]*Piece) {
+
+}
 func GenerateBoard(fen string) (board [][]*Piece) {
 	board = make([][]*Piece, 8)
 	board[0] = make([]*Piece, 8)
