@@ -57,18 +57,20 @@ var (
 
 func CalculatePossibleMoves(x, y int, board [8][8]*Piece) (moves [][2]int, err error) {
 	piece := board[y][x]
+
 	if piece == nil {
 		err = errors.New("in this square there is no piece")
 		return
 	}
 
-	if piece.Kind >= QUEEN && piece.Kind >= BISHOP {
+	if piece.Kind >= QUEEN && piece.Kind <= BISHOP {
 		for _, v := range Moves[piece.Kind] {
 			moves = append(moves, CalculatePossibleLineMoves(x, y, piece, board, v)...)
 		}
 		return
 
 	}
+
 	if piece.Kind == PAWN {
 		moves = CalculatePawnMoves(x, y, piece, board)
 		return

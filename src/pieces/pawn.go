@@ -1,7 +1,5 @@
 package pieces
 
-import "fmt"
-
 // pawn are kinda weird so yeah, this is needed
 func CalculatePawnMoves(x, y int, piece *Piece, board [8][8]*Piece) (moves [][2]int) {
 	direction := 1
@@ -23,18 +21,17 @@ func CalculatePawnMoves(x, y int, piece *Piece, board [8][8]*Piece) (moves [][2]
 				moves = append(moves, [2]int{y + direction*2, x})
 			}
 		}
-		fmt.Println(moves)
 
 	}
-	fmt.Println(moves)
 
 	return
 }
 func NormalAttack(x, y, attack, direction int, piece *Piece, board [8][8]*Piece) (moves [][2]int) {
-	if board[y+direction][x+attack] == nil {
-		return
-	}
+
 	if y+direction < 8 && y+direction >= 0 && x+attack >= 0 && x+attack < 8 {
+		if board[y+direction][x+attack] == nil {
+			return
+		}
 		if board[y+direction][x+attack].Black != piece.Black {
 			moves = append(moves, [2]int{(y + direction), x + attack})
 		}
@@ -44,11 +41,11 @@ func NormalAttack(x, y, attack, direction int, piece *Piece, board [8][8]*Piece)
 
 }
 func Passant(x, y, attack, direction int, piece *Piece, board [8][8]*Piece) (moves [][2]int) {
-	if board[y][x+attack] == nil {
-		return
-	}
 
 	if x+attack >= 0 && x+attack < 8 {
+		if board[y][x+attack] == nil {
+			return
+		}
 		if board[y][x+attack].Kind == PAWN && board[y][x+attack].Passant && board[y][x+attack].Black != piece.Black {
 			moves = append(moves, [2]int{(y + direction), x + attack})
 		}
