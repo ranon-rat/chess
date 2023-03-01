@@ -9,5 +9,5 @@ import (
 func main() {
 	board := pieces.GenerateBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR")
 	pieces.ShowBoard(board)
-	fmt.Println(pieces.CalculatePossibleMoves(0, 1, board))
+	fmt.Println(pieces.CalculatePossibleMoves(3, 0, board))
 }

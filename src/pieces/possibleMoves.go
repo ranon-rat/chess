@@ -76,7 +76,7 @@ func CalculatePossibleMoves(x, y int, board [8][8]*Piece) (moves [][2]int, err e
 		return
 	}
 	for _, v := range Moves[piece.Kind] {
-		moves = append(moves, CalculatePossibleSingleMoves(x, y, piece, board, v)...)
+		moves = append(moves, CalculatePossibleSingleMoves(x, y, piece, board, v))
 	}
 	// castling
 	if piece.Kind == KING && !piece.Moved {
@@ -112,7 +112,7 @@ func CalculatePossibleLineMoves(x, y int, piece *Piece, board [8][8]*Piece, move
 	return
 }
 
-func CalculatePossibleSingleMoves(x, y int, piece *Piece, board [8][8]*Piece, move [2]int) (moves [][2]int) {
+func CalculatePossibleSingleMoves(x, y int, piece *Piece, board [8][8]*Piece, m [2]int) (move [2]int) {
 	dy, dx := move[0], move[1]
 
 	x += dx
@@ -124,7 +124,7 @@ func CalculatePossibleSingleMoves(x, y int, piece *Piece, board [8][8]*Piece, mo
 
 			}
 		}
-		moves = append(moves, [2]int{y, x})
+		move = [2]int{y, x}
 
 	}
 	return
