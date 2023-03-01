@@ -113,7 +113,7 @@ func CalculatePossibleLineMoves(x, y int, piece *Piece, board [8][8]*Piece, move
 }
 
 func CalculatePossibleSingleMoves(x, y int, piece *Piece, board [8][8]*Piece, m [2]int) (move [2]int) {
-	dy, dx := move[0], move[1]
+	dy, dx := m[0], m[1]
 
 	x += dx
 	y += dy
