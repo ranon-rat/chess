@@ -14,7 +14,7 @@ var piecesString = map[int]string{
 	KING:   "k",
 }
 
-func ShowBoard(board [][]*Piece) {
+func ShowBoard(board [8][8]*Piece) {
 	for _, row := range board {
 		for _, p := range row {
 			if p == nil {

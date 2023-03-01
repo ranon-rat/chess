@@ -55,7 +55,7 @@ var (
 	// pawns are differents so yeah
 )
 
-func CalculatePossibleMoves(x, y int, board [][]*Piece) (moves [][2]int, err error) {
+func CalculatePossibleMoves(x, y int, board [8][8]*Piece) (moves [][2]int, err error) {
 	piece := board[y][x]
 	if piece == nil {
 		err = errors.New("in this square there is no piece")
@@ -87,9 +87,10 @@ func CalculatePossibleMoves(x, y int, board [][]*Piece) (moves [][2]int, err err
 	}
 
 	return
+
 }
 
-func CalculatePossibleLineMoves(x, y int, piece *Piece, board [][]*Piece, move [2]int) (moves [][2]int) {
+func CalculatePossibleLineMoves(x, y int, piece *Piece, board [8][8]*Piece, move [2]int) (moves [][2]int) {
 	dy, dx := move[0], move[1]
 	x += dx
 	y += dy
@@ -109,7 +110,7 @@ func CalculatePossibleLineMoves(x, y int, piece *Piece, board [][]*Piece, move [
 	return
 }
 
-func CalculatePossibleSingleMoves(x, y int, piece *Piece, board [][]*Piece, move [2]int) (moves [][2]int) {
+func CalculatePossibleSingleMoves(x, y int, piece *Piece, board [8][8]*Piece, move [2]int) (moves [][2]int) {
 	dy, dx := move[0], move[1]
 
 	x += dx

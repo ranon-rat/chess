@@ -19,12 +19,8 @@ var pieces = map[rune]*Piece{
 	'k': {Kind: KING, Black: true},
 }
 
-func BoardToFen([][]*Piece) {
+func GenerateBoard(fen string) (board [8][8]*Piece) {
 
-}
-func GenerateBoard(fen string) (board [][]*Piece) {
-	board = make([][]*Piece, 8)
-	board[0] = make([]*Piece, 8)
 	x := 0
 	y := 0
 	for _, v := range fen {
@@ -36,11 +32,13 @@ func GenerateBoard(fen string) (board [][]*Piece) {
 		if v == '/' {
 			y++
 			x = 0
-			board[y] = make([]*Piece, 8)
 			continue
 
 		}
 		board[y][x] = (pieces[v])
+		if board[y][x] != nil {
+			board[y][x].X, board[y][x].Y = x, y
+		}
 		x++
 
 	}
