@@ -1,13 +1,15 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/ranon-rat/chess/src/pieces"
+	"github.com/ranon-rat/chess/lib/types"
 )
 
 func main() {
-	board := pieces.GenerateBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR")
-	pieces.ShowBoard(board)
-	fmt.Println(pieces.CalculatePossibleMoves(3, 0, board))
+	//board := pieces.GenerateBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR")
+	//fmt.Println(board)
+	//pieces.ShowBoard(board)
+	//fmt.Println(pieces.CalculatePossibleMoves(1, 1, board))
+
+	game := types.Game{}
+	game.New()
 }

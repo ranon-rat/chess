@@ -23,12 +23,13 @@ func GenerateBoard(fen string) (board [8][8]*Piece) {
 
 	x := 0
 	y := 0
+
 	for _, v := range fen {
 		if val, _ := strconv.Atoi(string(v)); val != 0 {
 			x += val - 1
 			continue
-
 		}
+
 		if v == '/' {
 			y++
 			x = 0

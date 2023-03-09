@@ -29,4 +29,5 @@ func ShowBoard(board [8][8]*Piece) {
 		}
 		fmt.Println()
 	}
+
 }
